@@ -18,6 +18,44 @@
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/theme.css" rel="stylesheet">
+      <style>
+    #map-canvas { width:600px; height:400px; }
+    .layer-wizard-search-label { font-family: sans-serif };
+  </style>
+      <script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=false">
+  </script>
+  <script type="text/javascript">
+    var map;
+    var layer_0;
+    var layer_1;
+    function initialize() {
+      map = new google.maps.Map(document.getElementById('map-canvas'), {
+        center: new google.maps.LatLng(38.280161599494036, -96.89289494999997),
+        zoom: 3,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+      layer_0 = new google.maps.FusionTablesLayer({
+        query: {
+          select: "col0>>1",
+          from: "1XDsl4n8DeRwMpEHP2hewRseWIxPQA4juuuorIwbX"
+        },
+        map: map,
+        styleId: 2,
+        templateId: 2
+      });
+      layer_1 = new google.maps.FusionTablesLayer({
+        query: {
+          select: "col1",
+          from: "1rn8t2JxW-Z77ZS2ivB-Z--0VZ5joquDA4i9SB3XF"
+        },
+        map: map,
+        styleId: 2,
+        templateId: 3
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
   </head>
 
   <body role="document">
@@ -35,8 +73,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="about">About</a></li>
+            <li class="active"><a href="#">Byte1</a></li>
+<!--            <li><a href="about">About</a></li>-->
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -53,11 +91,17 @@
         answer it. </p>
       </div>
 
-<iframe width="500" height="300" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col4+from+1eHOxQnl4cMnGh2CZ0gc8uta91VjKLH6AL_RrqkRH&amp;viz=MAP&amp;h=false&amp;lat=37.603711493882734&amp;lng=-122.2805417916976&amp;t=1&amp;z=13&amp;l=col4&amp;y=2&amp;tmplt=2&amp;hml=TWO_COL_LAT_LNG"></iframe>
+
+        
+        
+        
+        <div id="map-canvas"></div>
+        
+        
 
 
       </div> <!-- /page-header -->
-    </div> <!-- /container -->
+    <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
